@@ -2,6 +2,7 @@ import React from "react";
 import openimage from "../assets/open.png";
 import { NavLink } from "react-router-dom";
 
+
 const Navbar = () => {
   let links = [
     {
