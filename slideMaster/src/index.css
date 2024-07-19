@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,95 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+body{
+  position: relative;
+}
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid black;
+  border-radius: 15px;
+  position: sticky;
+  z-index: 1000;
+  top: 1px;
+  background-color: white;
+
+}
+.navbar>img{
+  margin-left: 10px;
+}
+
+.link{
+  display: flex;
+  gap: 50px;
+  
+  
+}
+.link>.navlink{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius:10px;
+  background-color: #f0f0f0;
+  
+}
+.link>.navlink:focus{
+  background-color: #5ce0e6;
+}
+.sign{
+  display: flex;
+  gap: 30px;
+  margin-right: 50px;
+}
+.sign>button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+.sign>button:active{
+  color: white;
+  background-color: black;
+}
+.homepage{
+  text-align: center;
+  position: relative;
+  
+
+  
+}
+.homepage>h1{
+  color: #5ce0e6;
+}
+.image{
+  display: flex;
+  margin: 100px;
+  justify-content: center;
+  gap: 100px;
+  
+}
+.image>img{
+  border-radius: 10px;
+  /* height: 400px; */
+  /* width: 400px; */
+}
+.text{
+  width: 300px;
+  background-color: navy;
+  padding: 25px 50px;
+  color: wheat;
+  border-radius: 10px;
+}
+
+.footer{
+  background-color: navy;
+  color: wheat;
+  margin: 0;
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+.footer>p{
+  margin: 0;
 }
