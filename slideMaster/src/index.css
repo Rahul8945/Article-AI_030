@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,47 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+} */
+
+.navbar{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid red;
 }
+
+.link{
+  display: flex;
+  gap: 50px;
+  
+  
+}
+.link>.navlink{
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  padding: 8px 20px;
+  border-radius:10px;
+  
+}
+.link>.navlink:focus{
+  background-color: #5ce0e6;
+}
+.sign{
+  display: flex;
+  gap: 30px;
+  margin-right: 50px;
+}
+.sign>button{
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+}
+.sign>button:active{
+  color: white;
+  background-color: black;
+}
+.homepage{
+  text-align: center;
+}
+
