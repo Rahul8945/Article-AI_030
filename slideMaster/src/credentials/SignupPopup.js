@@ -7,7 +7,9 @@ const SignupPopup = ({ closePopup }) => {
       <div className="popup-inner">
         <h2>Sign Up</h2>
         <form>
-          <label>Name:</label>
+          <label>First Name:</label>
+          <input type="text" required />
+          <label>Last Name:</label>
           <input type="text" required />
           <label>Email:</label>
           <input type="email" required />
