@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
+import { useAuth } from '../context/AuthContext';
 
-const Signup = () => {
+const LoginPopup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const { login } = useAuth();
 
-  const handleSignup = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    // Implement your signup functionality here
-    console.log('Signup:', { email, password, confirmPassword });
-    login({ username: 'user' }); 
+    // Mock login function
+    const userData = { email, firstName: 'John' }; // Replace with real authentication logic
+    login(userData);
   };
 
   return (
-    <form onSubmit={handleSignup} className="form">
-      <h2>Sign Up</h2>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        placeholder="Email"
-        required
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        placeholder="Password"
-        required
-      />
-      <input
-        type="password"
-        value={confirmPassword}
-        onChange={(e) => setConfirmPassword(e.target.value)}
-        placeholder="Confirm Password"
-        required
-      />
-      <button type="submit">Sign Up</button>
-    </form>
+    <div>
+      <h2>Login</h2>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Email:
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <button type="submit">Log In</button>
+      </form>
+    </div>
   );
 };
 
-export default Signup;
+export default LoginPopup;

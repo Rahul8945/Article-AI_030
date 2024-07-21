@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import openimage from '../assets/open.png';
-import { NavLink, useNavigate} from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import Login from '../credentials/LoginPopup';
 import { useAuth } from '../context/AuthContext';
 import Signup from '../credentials/SignupPopup';
@@ -8,8 +8,8 @@ import Signup from '../credentials/SignupPopup';
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-  const { user } = useAuth();
-  const history = useNavigate();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
   const closeModal = () => {
     setShowLogin(false);
@@ -24,15 +24,21 @@ const Navbar = () => {
     }
   };
 
-  const handleCreateClick = () => {
+  const handleCreateClick = (e) => {
+    e.preventDefault();
     if (user) {
-      history.push('/create');
+      navigate('/create');
     } else {
       setShowLogin(true);
     }
   };
 
-  let links = [
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
+
+  const links = [
     { to: '/', name: 'Home' },
     { to: '#', name: 'Create Presentation', onClick: handleCreateClick },
     { to: '/saved', name: 'Saved' },
@@ -43,14 +49,28 @@ const Navbar = () => {
       <img src={openimage} alt="Logo" />
       <div className="link">
         {links.map((ele) => (
-          <NavLink key={ele.to} to={ele.to} className="navlink" onClick={ele.onClick}>
+          <NavLink
+            key={ele.to}
+            to={ele.to}
+            className="navlink"
+            onClick={ele.onClick}
+          >
             {ele.name}
           </NavLink>
         ))}
       </div>
       <div className="sign">
-        <button onClick={handleSignupClick}>Sign up</button>
-        <button onClick={() => setShowLogin(true)}>Log In</button>
+        {user ? (
+          <>
+            <span>Welcome, {user.firstName}!</span>
+            <button onClick={handleLogout}>Log Out</button>
+          </>
+        ) : (
+          <>
+            <button onClick={handleSignupClick}>Sign up</button>
+            <button onClick={() => setShowLogin(true)}>Log In</button>
+          </>
+        )}
       </div>
 
       {(showLogin || showSignup) && (
