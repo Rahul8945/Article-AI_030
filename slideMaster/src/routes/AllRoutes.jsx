@@ -1,19 +1,17 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Create from "../pages/Create";
 import Saved from "../pages/Saved";
-import HomePage from "../pages/HomePage.jsx";
-
-
-
-
+import Home from "../pages/HomePage.jsx";
+import { PrivateRoute } from "./PrivateRoute.jsx";
 
 const AllRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage/>} />
-      <Route path="/create" element={<Create/>} />
-      <Route path="/saved" element={<Saved/>} />
+      <Route path="/" element={<Home />} />
+      <Route path="/create" element={<PrivateRoute element={<Create />} />} />
+      <Route path="/saved" element={<Saved />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

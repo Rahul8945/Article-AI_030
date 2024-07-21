@@ -1,17 +1,18 @@
+import { Router, Routes } from "react-router-dom";
+import "./App.css";
+import Navbar from "./components/Navbar";
+import { AuthProvider } from "./context/AuthContext";
+import AllRoutes from "./routes/AllRoutes";
 
-import './App.css'
-import Navbar from './components/Navbar'
-import AllRoutes from './routes/AllRoutes'
-
-function App() {
-  
-
+const App = () => {
   return (
-    <>
-     <Navbar/>
-     <AllRoutes/>
-    </>
-  )
-}
+    // <Router>
+      <AuthProvider>
+        <Navbar />
+        <AllRoutes />
+      </AuthProvider>
+    // </Router>
+  );
+};
 
-export default App
+export default App;
